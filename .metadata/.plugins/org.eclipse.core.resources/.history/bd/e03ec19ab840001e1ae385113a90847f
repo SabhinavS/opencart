@@ -1,0 +1,48 @@
+package TestCases;
+
+import static org.testng.Assert.fail;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import PageObjects.Accountregestration;
+import PageObjects.Homepage;
+
+public class Tc_001_accountregestrationtest extends BaseClass{
+
+	@Test
+	void accreg() {
+		try {
+
+		//homepage present in different package
+		Homepage hp=new Homepage(driver);
+		hp.clickaccount();
+		hp.clickregister();
+		
+		//account reg is present in another package use obj
+		Accountregestration accreg=new Accountregestration(driver);
+		
+		accreg.setFirstName(randomnstring().toUpperCase());
+		accreg.setLastName(randomnstring().toLowerCase());
+		accreg.setEmail(randomnstring()+"@gmail.com"); //randomly generate email
+		accreg.setTelephone(randomnumber());
+		String password=randomalphanum();
+		accreg.setPassword(password);
+		accreg.setConfirmPassword(password);
+		accreg.clickpolicy();
+		accreg.clickcontinue();
+	String msg=	accreg.confrmmsg();
+	
+	Assert.assertEquals(msg, "Account is created");
+		}
+		
+	catch(Exception e) 
+		{
+		Assert.fail();
+	}
+	}
+	
+}
+
+
+

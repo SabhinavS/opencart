@@ -1,0 +1,29 @@
+package practise;
+
+import java.util.Scanner;
+
+public class Palindrome164461 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter the value " +sc);
+		int num=sc.nextInt();
+		
+		
+		StringBuffer sb=new StringBuffer(String.valueOf(num));
+		StringBuffer rev=sb.reverse();
+			
+			if(rev.equals(String.valueOf(num))) {
+				System.out.println("the number is palindrome");
+			}
+			else {
+				System.out.println("the number is not a palindrome");
+			}
+			
+		}
+		
+	}
+
+
