@@ -1,0 +1,33 @@
+package PageObjects;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class Homepage extends PageBase {
+
+	//constructor
+	public Homepage(WebDriver driver) {
+		super(driver);   //inheritance invoke parent class using super 
+	}
+
+	//webelements
+	
+		@FindBy(xpath="//span[normalize-space()='My Account']")
+		WebElement clickaccount;
+	
+		@FindBy(linkText = "Register")
+		WebElement clickregister;
+		
+	//actions
+		public void clickaccount() {
+			clickaccount.click();
+		}
+		
+		public void clickregister() {
+			clickregister.click();
+		}
+		
+	}
+
+

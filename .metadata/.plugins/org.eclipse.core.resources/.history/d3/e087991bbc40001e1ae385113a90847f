@@ -1,0 +1,50 @@
+package TestBase;
+
+import java.time.Duration;
+
+import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class baseclass {
+public WebDriver driver;
+	
+	
+	//reusable methods
+	@BeforeClass
+public	void setup() {
+	WebDriverManager.chromedriver().setup();
+	WebDriver driver=new ChromeDriver();
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	driver.get("https://demo.opencart.com/index.php");
+}
+		
+	@AfterClass
+public	void teardown() {
+		driver.quit();
+	}
+
+	
+	//to generate random string and num
+	public String randomnstring() {
+		String generatedString = RandomStringUtils.randomAlphabetic(5);
+		return (generatedString);
+	}
+	
+	public String randomnumber() {
+		String generatedString2 = RandomStringUtils.randomNumeric(5);
+		return (generatedString2);
+	}
+	
+	public String randomalphanum() {
+		String generatealpnum=RandomStringUtils.randomAlphanumeric(7);
+		return  randomalphanum();
+	}
+	
+}
+
+

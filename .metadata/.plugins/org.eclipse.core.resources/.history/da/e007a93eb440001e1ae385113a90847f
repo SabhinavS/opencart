@@ -1,0 +1,15 @@
+package TestCases;
+
+import org.testng.annotations.Test;
+
+public class Tc_001_accountregestrationtest {
+
+	@Test
+	void accreg() {
+		
+	}
+	
+}
+
+
+
